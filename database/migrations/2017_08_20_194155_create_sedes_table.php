@@ -13,7 +13,16 @@ class CreateSedesTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('sedes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('ciudades_id')->unsigned()->index();
+            $table->string('direccion',255);
+            $table->string('telefonos',100);
+            $table->string('email');
+            
+            $table->timestamps();
+            $table->foreign('ciudades_id')->references('id')->on('ciudades');
+        });
     }
 
     /**
@@ -23,6 +32,7 @@ class CreateSedesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('sedes');
+        
     }
 }

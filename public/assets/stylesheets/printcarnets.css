@@ -1,0 +1,75 @@
+@media print {
+	* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	}
+	h2, .h2 {
+    font-size: 30px;
+	}
+
+	h1, .h1, h2, .h2, h3, .h3 {
+	    margin-top: 20px;
+	    margin-bottom: 10px;
+	}
+
+	h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	    font-family: inherit;
+	    font-weight: 500;
+	    line-height: 1.1;
+	    color: inherit;
+	}
+	body{
+		background-color: transparent !important;
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 14px;
+    	line-height: 1.42857143;
+    	color: #333;
+	}
+
+	
+	table {
+	    border-spacing: 0;
+	    border-collapse: collapse;
+	    background-color: transparent;
+	}
+
+	tbody {
+	    display: table-row-group;
+	    vertical-align: middle;
+	    border-color: inherit;
+	}
+	p {
+    	margin: 0 0 10px;
+	}
+	.carnet{
+		display: block;
+		width: 340px;
+		height: 220px;
+		border: 1px solid black;
+		margin: 0px;
+
+	}	
+	
+	.blanco{
+		color: white;
+	}
+
+	.btn-circle1 {
+    width: 75px;
+    height: 75px;
+    padding: 10px 16px;
+    border-radius: 100%;
+    font-size: 37px;
+    line-height: 1.33;
+	}
+
+	.tabla{
+   		width: 100%;
+    }
+   .tabla>tbody>tr>td{
+   		padding-left: 0px;
+   		text-align: left;
+   		font-size: 8px;
+   	}
+}

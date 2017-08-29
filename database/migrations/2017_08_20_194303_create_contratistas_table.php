@@ -13,7 +13,23 @@ class CreateContratistasTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('contratistas', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('tiposervicios_id')->index()->unsigned();
+            $table->string('codigo');
+            $table->string('nombre',100);
+            $table->string('descripcion',255);
+            $table->integer('ciudades_id')->index()->unsigned();
+            $table->string('direccion',100);
+            $table->string('telefono');
+            $table->string('correo');
+            $table->string('web',100);
+
+            $table->foreign('tiposervicios_id')->references('id')->on('tiposervicios');
+            $table->foreign('ciudades_id')->references('id')->on('ciudades');
+
+            $table->timestamps();
+        });
     }
 
     /**

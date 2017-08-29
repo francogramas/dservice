@@ -13,7 +13,12 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('role', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name')->unique();
+            $table->string('display_name');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('role');
     }
 }
