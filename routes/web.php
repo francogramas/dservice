@@ -11,20 +11,25 @@
 |
 */
 
+//-----------------------------------Generales
 Route::resource('/pais','general\pais');
+Route::get('/buscar/contratistas','admin\contratistasController@autocompletar');
 Route::get('/departamentos/{id}','general\estadosController@getEstados');
 Route::get('/ciudades/{id}','general\ciudadesController@getCiudades');
 Route::get('/ciudades/{id}','general\ciudadesController@getCiudades');
 
-
-Route::get('/', function () {
-    return view('welcome');
-});
+//---------------------------recursos para usuarios
+Route::resource('/','wellcomeController');
+Route::resource('/ususedes','usuarios\sedesController');
+Route::resource('/servicios','usuarios\serviciosController');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('categorias','admin\categoriasController');
-Route::resource('sedes','admin\sedesController');
-Route::resource('contratistas','admin\contratistasController');
-Route::resource('servicioscontratistas','admin\serviciosContratistasController');
-Route::get('/buscar/contratistas','admin\contratistasController@autocompletar');
+
+//recursos administrativos
+Route::prefix('admin')->group(function () {
+	Route::resource('categorias','admin\categoriasController');
+	Route::resource('sedes','admin\sedesController');
+	Route::resource('contratistas','admin\contratistasController');
+	Route::resource('servicioscontratistas','admin\serviciosContratistasController');
+});
