@@ -35,7 +35,7 @@ class serviciosController extends Controller
         $tiposervicios_id = $request->input('tiposervicios_id');
         $results = array();
         
-        $queries=servicioscontratistas::select('servicioscontratistas.id','servicioscontratistas.nombre')
+        $queries=servicioscontratistas::select('servicioscontratistas.id','servicioscontratistas.nombre','servicioscontratistas.tarifaparticular','contratistas.nombre as contratista')
         ->join('contratistas','servicioscontratistas.contratistas_id','contratistas.id')
     	->where('contratistas.tiposervicios_id',Session('tiposervicios_id'))    	
     	->where('contratistas.sedes_id',Session('sedes_id'))
@@ -47,10 +47,14 @@ class serviciosController extends Controller
     	->take(20)
         ->get();
         
-        foreach ($queries as $query)
+       /* foreach ($queries as $query)
         {
-            $results[] = [ 'id' => $query->id, 'value' => $query->nombre];
+            $results[] = [ 'id' => $query->id, 'value' => "<a href='#'>'".$query->nombre."</a>" ];
         }
-        return Response()->json($results);
+        return $queries;*/
+
+        return view('usuarios.serviciosTablaView')
+        ->with('servicioscontratistas',$queries);
+
     }
 }
