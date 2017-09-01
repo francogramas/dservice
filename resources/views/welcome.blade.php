@@ -6,7 +6,7 @@
         <div class="row">
         @foreach ($tiposervicios as $tiposervicio)
             <div class="col-md-3 form-group">
-                   <a href="#" class="btn btn-primary form-control">
+                   <a href={{ route('servicios.show',$tiposervicio->id) }} class="btn btn-primary form-control">
                         {{ $tiposervicio->nombre }}
                     </a>
             </div>

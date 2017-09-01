@@ -11,10 +11,10 @@ class wellcomeController extends Controller
 		$sede=sedes::count();
 		$sedes=sedes::first();		
 		if ($sede>1){
-			return redirect()->route('ususedes.index');
+			return redirect()->route('sedesu.index');
 		}
 		else{
-			return redirect()->route('ususedes.show',$sedes->id);			
+			return redirect()->route('sedesu.show',$sedes->id);			
 		}	
     }
 }

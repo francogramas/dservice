@@ -14,13 +14,13 @@
 //-----------------------------------Generales
 Route::resource('/pais','general\pais');
 Route::get('/buscar/contratistas','admin\contratistasController@autocompletar');
+Route::get('/buscar/servicioscontratistas','usuarios\serviciosController@autocompletar');
 Route::get('/departamentos/{id}','general\estadosController@getEstados');
-Route::get('/ciudades/{id}','general\ciudadesController@getCiudades');
 Route::get('/ciudades/{id}','general\ciudadesController@getCiudades');
 
 //---------------------------recursos para usuarios
 Route::resource('/','wellcomeController');
-Route::resource('/ususedes','usuarios\sedesController');
+Route::resource('/sedesu','usuarios\sedesController');
 Route::resource('/servicios','usuarios\serviciosController');
 
 Auth::routes();

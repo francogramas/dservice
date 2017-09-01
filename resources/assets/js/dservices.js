@@ -38,4 +38,19 @@ $("#Buscarcontratistas").autocomplete({
        $("#contratistas_id").val("0");                 
     });
 
+//-----------------------------------Buscar asesores----------------------------------------
+$("#serviciosContratistas").autocomplete({
+      source: "/buscar/servicioscontratistas",
+      minLength: 1,
+      select: function(event, ui) {
+        $('#serviciosContratistas').val(ui.item.value);
+        $('#servicioscontratistas_id').val(ui.item.id);
+      }
+   });
+
+    $("#serviciosContratistas").click(function(){
+       $("#serviciosContratistas").val("");
+       $("#servicioscontratistas_id").val("0");                 
+    });
+
 });

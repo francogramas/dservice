@@ -72,10 +72,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>
-                <div class="col-md-10 col-md-offset-1 form-group">
-                    <input type="text" class="form-control" placeholder="Buscar en nuestra red de servicios">
-                </div>
+        </nav>                
                 <div class="col-md-10 col-md-offset-1 form-group">
                      <section>
                         @if ($errors->any())

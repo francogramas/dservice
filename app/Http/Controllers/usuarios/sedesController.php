@@ -7,6 +7,9 @@ use Dservices\Http\Controllers\Controller;
 use Dservices\Model\sedes;
 use Dservices\Model\ciudades;
 use Dservices\Model\tiposervicios;
+use Dservices\Model\contratistas;
+use Session;
+
 
 class sedesController extends Controller
 {
@@ -21,7 +24,15 @@ class sedesController extends Controller
     }
 
     public function show($id){
-		$tiposervicios=tiposervicios::all();    	
+
+        Session(['sedes_id'=>$id]);
+
+        $tiposervicios=contratistas::select('tiposervicios.nombre','tiposervicios.id')
+        ->join('tiposervicios','contratistas.tiposervicios_id','tiposervicios.id')
+        ->where('contratistas.sedes_id',$id)
+        ->groupBy('tiposervicios.id','tiposervicios.nombre')
+        ->get();
+
     	return view('welcome')
     	->with('tiposervicios',$tiposervicios);
     }
