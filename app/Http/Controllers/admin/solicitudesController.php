@@ -55,6 +55,7 @@ class solicitudesController extends Controller
     public function store(Request $request)
     {
         //
+        
     }
 
     /**
