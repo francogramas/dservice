@@ -8,8 +8,6 @@ use Dservices\Model\sedes;
 use Dservices\Model\estados;
 use Dservices\Model\ciudades;
 
-
-
 class sedesController extends Controller
 {
     public function index()
