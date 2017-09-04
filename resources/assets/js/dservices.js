@@ -38,24 +38,19 @@ $("#Buscarcontratistas").autocomplete({
        $("#contratistas_id").val("0");                 
     });
 
-//-----------------------------------Buscar asesores----------------------------------------
-$("#serviciosContratistas").autocomplete({
-      source: "/buscar/servicioscontratistas",
-      minLength: 1,
-      select: function(event, ui) {
-        $('#serviciosContratistas').val(ui.item.value);
-        $('#servicioscontratistas_id').val(ui.item.id);
-      }
-   });
 
-    $("#serviciosContratistas").click(function(){
+//-----------------------------------Buscar Servicios----------------------------------------
+$("#serviciosContratistas").keyup(function(event) {
+    $.get('/buscar/servicioscontratistas?term='+$("#serviciosContratistas").val(), function(data) {
+        $("#tablaServicios").empty().html(data);       
+    });
+  });
+ $("#serviciosContratistas").click(function(){
        $("#serviciosContratistas").val("");
        $("#servicioscontratistas_id").val("0");                 
     });
-//-----------------------------------Buscar asesores----------------------------------------
-$("#serviciosContratistas").change(function(event) {
-    $.get('/buscar/servicioscontratistas?term='+$("#serviciosContratistas").val(), function(data) {
-      /*optional stuff to do after success */
-    });
+//-------------------------------Seleccionar solicitudes-------------------------------------
+$(".SolicitudId").click(function(event) {
+  console.log('Hola mundo'); 
   });
 });

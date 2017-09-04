@@ -27,4 +27,4 @@ const app = new Vue({
     el: '#app'
 });
 
-$('#datepicker').datepicker();
+$( ".datepicker").datepicker({autoSize: true, dateFormat: "yy-mm-dd", });

@@ -8,27 +8,27 @@
 				<div class="row form-group">
 					<div class="col-sm-6">
 						<label for="estado">Departamento/estado</label>
-    					{!! Form::select('departamentos',$estados,null,['id'=>'departamentos','class'=>'form-control']) !!}
+    					{{ Form::select('departamentos',$estados,null,['id'=>'departamentos','class'=>'form-control']) }}
 					</div>
 					<div class="col-sm-6">
 						<label for="ciudad">Ciudad</label>
-    					{!! Form::select('ciudades_id',$ciudades,null,['id'=>'ciudades_id','class'=>'form-control']) !!}
+    					{{ Form::select('ciudades_id',$ciudades,null,['id'=>'ciudades_id','class'=>'form-control']) }}
 					</div>
 				</div>
 				<div class="row form-group">
 					<div class="col-sm-6">
 						<label for="">Dirección</label>
-						{!! Form::text('direccion',null,['id'=>'direccion','class'=>'form-control', 'required']) !!}
+						{{ Form::text('direccion',null,['id'=>'direccion','class'=>'form-control', 'required']) }}
 					</div>
 					<div class="col-sm-6">
 						<label for="">Teléfonos</label>
-						{!! Form::text('telefonos',null,['id'=>'telefonos','class'=>'form-control', 'required']) !!}
+						{{ Form::text('telefonos',null,['id'=>'telefonos','class'=>'form-control', 'required']) }}
 					</div>
 				</div>
 				<div class="row form-group">
 					<div class="col-sm-6">
 						<label for="">Correo</label>
-						{!! Form::email('email',null,['id'=>'email','class'=>'form-control', 'required', 'type'=>'email']) !!}
+						{{ Form::email('email',null,['id'=>'email','class'=>'form-control', 'required', 'type'=>'email']) }}
 					</div>
 					<div class="col-sm-6">
 					<label for=""><br></label>

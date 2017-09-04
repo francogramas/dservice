@@ -22,6 +22,7 @@ Route::get('/ciudades/{id}','general\ciudadesController@getCiudades');
 Route::resource('/','wellcomeController');
 Route::resource('/sedesu','usuarios\sedesController');
 Route::resource('/servicios','usuarios\serviciosController');
+Route::resource('/solicitudes','usuarios\solicitudesController');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
@@ -32,4 +33,5 @@ Route::prefix('admin')->group(function () {
 	Route::resource('sedes','admin\sedesController');
 	Route::resource('contratistas','admin\contratistasController');
 	Route::resource('servicioscontratistas','admin\serviciosContratistasController');
+	Route::resource('admsolicitudes','admin\solicitudesController');
 });

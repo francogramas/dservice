@@ -9,26 +9,26 @@
 						<div class="col-sm-12">
 							<label for="">Contratista</label>
 							<input type="text" class="form-control" id="Buscarcontratistas">
-							{!! Form::hidden('contratistas_id',null,['id'=>'contratistas_id']) !!}							
+							{{ Form::hidden('contratistas_id',null,['id'=>'contratistas_id']) }}							
 						</div>
 					</div>
 					<div class="row form-group">
 						<div class="col-sm-12">
 							<label for="">Nombre de servicio</label>
-							{!! Form::text('nombre',null,['id'=>'nombre','class'=>'form-control', 'required']) !!}							
+							{{ Form::text('nombre',null,['id'=>'nombre','class'=>'form-control', 'required']) }}							
 						</div>
 					</div>
 					<div class="row form-group">					
 						<div class="col-sm-12"><label for="">Descripción</label>
-							{!! Form::text('descripcion',null,['id'=>'descripcion','class'=>'form-control', 'required']) !!}							
+							{{ Form::text('descripcion',null,['id'=>'descripcion','class'=>'form-control', 'required']) }}							
 						</div>
 					</div>
 					<div class="row form-group">
 						<div class="col-sm-6"><label for="">Tarifa</label>
-							{!! Form::number('tarifaparticular',null,['id'=>'tarifaparticular','class'=>'form-control', 'required', 'step'=>'0.1']) !!}
+							{{ Form::number('tarifaparticular',null,['id'=>'tarifaparticular','class'=>'form-control', 'required', 'step'=>'0.1']) }}
 						</div>
 						<div class="col-sm-6"><label for="">Costo</label>
-							{!! Form::number('ingresoconvenio',null,['id'=>'ingresoconvenio','class'=>'form-control', 'required', 'step'=>'0.1']) !!}
+							{{ Form::number('ingresoconvenio',null,['id'=>'ingresoconvenio','class'=>'form-control', 'required', 'step'=>'0.1']) }}
 						</div>
 					</div>
 					<div class="row form-group">
