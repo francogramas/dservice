@@ -35,7 +35,7 @@ class serviciosController extends Controller
         $tiposervicios_id = $request->input('tiposervicios_id');
         $results = array();
         
-        $queries=servicioscontratistas::select('servicioscontratistas.id','servicioscontratistas.nombre','servicioscontratistas.tarifaparticular','contratistas.nombre as contratista')
+        $queries=servicioscontratistas::select('servicioscontratistas.id','servicioscontratistas.nombre','servicioscontratistas.descripcion','servicioscontratistas.tarifaparticular','contratistas.nombre as contratista')
         ->join('contratistas','servicioscontratistas.contratistas_id','contratistas.id')
     	->where('contratistas.tiposervicios_id',Session('tiposervicios_id'))    	
     	->where('contratistas.sedes_id',Session('sedes_id'))

@@ -8,57 +8,57 @@
 				<div class="row form-group">
 					<div class="col-sm-12">
 						<label for="">Sede</label>
-	    				{!! Form::select('sedes_id',$sedes,null,['id'=>'sedes_id','class'=>'form-control']) !!}
+	    				{{ Form::select('sedes_id',$sedes,null,['id'=>'sedes_id','class'=>'form-control']) }}
 	    			</div>
 				</div>
 				<div class="row form-group">
 					<div class="col-sm-6">
 						<label for="">Tipo se servicios</label>
-    					{!! Form::select('tiposervicios_id',$tiposervicios,null,['id'=>'tiposervicios_id','class'=>'form-control']) !!}
+    					{{ Form::select('tiposervicios_id',$tiposervicios,null,['id'=>'tiposervicios_id','class'=>'form-control']) }}
 					</div>
 					<div class="col-sm-6">
 						<label for="">Nit</label>
-						{!! Form::text('codigo',null,['id'=>'codigo','class'=>'form-control', 'required']) !!}
+						{{ Form::text('codigo',null,['id'=>'codigo','class'=>'form-control', 'required']) }}
 					</div>
 				</div>
 				<div class="row form-group">
 					<div class="col-sm-6">
 						<label for="">Razón social</label>
-						{!! Form::text('nombre',null,['id'=>'nombre','class'=>'form-control', 'required']) !!}
+						{{ Form::text('nombre',null,['id'=>'nombre','class'=>'form-control', 'required']) }}
 					</div>
 					<div class="col-sm-6">
 						<label for="">Descripción</label>
-						{!! Form::text('descripcion',null,['id'=>'descripcion','class'=>'form-control', 'required']) !!}
+						{{ Form::text('descripcion',null,['id'=>'descripcion','class'=>'form-control', 'required']) }}
 					</div>
 				</div>
 				<div class="row form-group">
 					<div class="col-sm-6">
 						<label for="">Departamento/estado</label>
-    					{!! Form::select('departamentos',$estados,null,['id'=>'departamentos','class'=>'form-control']) !!}
+    					{{ Form::select('departamentos',$estados,null,['id'=>'departamentos','class'=>'form-control']) }}
 					</div>
 					<div class="col-sm-6">
 						<label for="">Ciudad</label>
-    					{!! Form::select('ciudades_id',$ciudades,null,['id'=>'ciudades_id','class'=>'form-control']) !!}
+    					{{ Form::select('ciudades_id',$ciudades,null,['id'=>'ciudades_id','class'=>'form-control']) }}
 					</div>
 				</div>
 				<div class="row form-group">
 					<div class="col-sm-6">
 						<label for="">Dirección</label>
-						{!! Form::text('direccion',null,['id'=>'direccion','class'=>'form-control', 'required']) !!}
+						{{ Form::text('direccion',null,['id'=>'direccion','class'=>'form-control', 'required']) }}
 					</div>
 					<div class="col-sm-6">
 						<label for="">Teléfono</label>
-						{!! Form::text('telefono',null,['id'=>'telefono','class'=>'form-control', 'required']) !!}
+						{{ Form::text('telefono',null,['id'=>'telefono','class'=>'form-control', 'required']) }}
 					</div>
 				</div>
 				<div class="row form-group">
 					<div class="col-sm-6">
 						<label for="">Correo</label>
-						{!! Form::email('correo',null,['id'=>'correo','class'=>'form-control', 'required']) !!}
+						{{ Form::email('correo',null,['id'=>'correo','class'=>'form-control', 'required']) }}
 					</div>
 					<div class="col-sm-6">
 						<label for="">Dirección Web</label>
-						{!! Form::email('web',null,['id'=>'web','class'=>'form-control', 'required']) !!}
+						{{ Form::email('web',null,['id'=>'web','class'=>'form-control', 'required']) }}
 					</div>
 				</div>
 				<div class="row form-group">
