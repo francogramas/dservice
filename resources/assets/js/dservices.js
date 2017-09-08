@@ -51,6 +51,6 @@ $("#serviciosContratistas").keyup(function(event) {
     });
 //-------------------------------Seleccionar solicitudes-------------------------------------
 $(".SolicitudId").click(function(event) {
-  console.log('Hola mundo'); 
+    console.log('Hola mundo'); 
   });
 });
