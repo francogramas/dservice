@@ -45,12 +45,16 @@ $("#serviciosContratistas").keyup(function(event) {
         $("#tablaServicios").empty().html(data);       
     });
   });
+
  $("#serviciosContratistas").click(function(){
        $("#serviciosContratistas").val("");
-       $("#servicioscontratistas_id").val("0");                 
+       $("#servicioscontratistas_id").val("0");
     });
 //-------------------------------Seleccionar solicitudes-------------------------------------
 $(".SolicitudId").click(function(event) {
-    console.log('Hola mundo'); 
+    var _solicitud = $('input[type=hidden]', $(this).closest("td")).val();
+    $.get('/admin/solicituddetalle/'+_solicitud, function(data) {
+        $("#detalleSolicitud").empty().html(data);       
+     }); 
   });
 });

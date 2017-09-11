@@ -50,4 +50,15 @@ class solicitudesController extends Controller
     {
         //
     }
+    public function detalle($id){
+        $solicitudes=solicitudes::select('solicitudes.*','servicioscontratistas.nombre','servicioscontratistas.tarifaparticular','contratistas.nombre as contratista','contratistas.telefono','contratistas.correo','users.name as usuario','users.phone')        
+        ->join('servicioscontratistas','solicitudes.servicioscontratistas_id','servicioscontratistas.id')
+        ->join('contratistas','servicioscontratistas.contratistas_id','contratistas.id')
+        ->join('users','solicitudes.users_id','users.id')
+        ->where('solicitudes.id',$id)  
+        ->first();
+
+        return view('admin.solicitudesDetalleView')
+        ->with('solicitudes',$solicitudes);   
+    }
 }

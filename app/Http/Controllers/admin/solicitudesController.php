@@ -89,7 +89,10 @@ class solicitudesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $solicitudes=solicitudes::FindOrFail($id);
+        $solicitudes->fill($request->all())->save();
+        return response()->json(['succes'=>'true']);
+
     }
 
     /**
@@ -101,5 +104,19 @@ class solicitudesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function mostarSolicitudes(){
+        $solicitudes=solicitudes::select('solicitudes.*','users.name','servicioscontratistas.nombre as servicio','contratistas.nombre as contratista', 'estadosolicitudes.nombre as estado','ciudades.name as ciudad')
+        ->join('users','solicitudes.users_id','users.id')
+        ->join('servicioscontratistas','solicitudes.servicioscontratistas_id','servicioscontratistas.id')
+        ->join('estadosolicitudes','solicitudes.estadosolicitudes_id','estadosolicitudes.id')
+        ->join('contratistas','servicioscontratistas.contratistas_id','contratistas.id')
+        ->join('sedes','contratistas.sedes_id','sedes.id')
+        ->join('ciudades','sedes.ciudades_id','ciudades.id')
+        ->whereIn('solicitudes.estadosolicitudes_id',['1','2'])
+        ->get();
+         return view('admin/solicitudesTablaView')
+        ->with('solicitudes',$solicitudes);        
     }
 }

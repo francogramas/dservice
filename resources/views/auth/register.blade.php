@@ -23,12 +23,17 @@
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <div class="col-md-12">
                                 <input id="email" type="email" placeholder="Correo electrónico" class="form-control" name="email" value="{{ old('email') }}" required>
-
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input id="phone" type="phone" placeholder="Teléfono" class="form-control" name="phone" required>
                             </div>
                         </div>
 
@@ -42,8 +47,8 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
-
+                        </div>                        
+                        
                         <div class="form-group">
                             <div class="col-md-12">
                                 <input id="password-confirm" type="password" placeholder="Confirmar contraseña" class="form-control" name="password_confirmation" required>

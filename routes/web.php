@@ -29,9 +29,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //recursos administrativos
 Route::prefix('admin')->group(function () {
+	Route::get('solicituddetalle/{id}','usuarios\solicitudesController@detalle');	
 	Route::resource('categorias','admin\categoriasController');
 	Route::resource('sedes','admin\sedesController');
 	Route::resource('contratistas','admin\contratistasController');
 	Route::resource('servicioscontratistas','admin\serviciosContratistasController');
 	Route::resource('admsolicitudes','admin\solicitudesController');
+	Route::get('mostrarsolicitudes','admin\solicitudesController@mostarSolicitudes');
 });
