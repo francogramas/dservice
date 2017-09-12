@@ -33,69 +33,44 @@
 	  			$('#mensaje').html('<div class="alert alert-danger alert-dismissable"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> &times; </button>Debe escribir el motivo de cancelación de la solicitud.</div>');
 	  		}
   		});
-
-  		//----------------------------------------------------------------------------------------------------------------------------------
-  		$("#btnAgendar").click(function(event) {
-	  		$('#mensajeAgenda').empty();  			
-	  		var _solicitud = $("#solicitudes_id").val();	
-	  		var _servicioscontratistas_id = $("#servicioscontratistas_id").val();
-	  		var _fecha = $("#fecha").val();
-	  		var _hora = $("#hora").val();
-	    	var token=$("input[name=_token]").val();
-	  		$.ajax({
-	  			url: '/admin/admsolicitudes/'+_solicitud,
-	    		headers:{'X-CSRF-TOKEN':token},  				
-	  			type: 'PUT',
-	  			dataType: 'json',
-	  			data: {servicioscontratistas_id:_servicioscontratistas_id, fecha:_fecha, hora:_hora, estadosolicitudes_id:6},
-	  		})
-	  		.done(function() {
-	  			$.get('/admin/mostrarsolicitudes', function(data) {
-	  				$('#tablaSolicitudes').empty().html(data);
-	  			});
-
-	  			$('#generarOrdenModal').modal('hide');	
-	  			$('#panelDetalle').empty();
-	  		})
-	  		.fail(function() {
-	  			$('#mensajeAgenda').empty();
-	  			$('#mensajeAgenda').html('<div class="alert alert-danger alert-dismissable"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> times; </button> No se pudo guardar la solicitud por problemas de conexión al servidor, por favor revise su conexión a internet e intente nuevamente.</div>');
-	  		});
-  		});
   	});
  </script>
-{{ csrf_field() }}
+<?php echo e(csrf_field()); ?>
+
 <div id="panelDetalle">
 	<div class="panel panel-primary">
 	  <div class="panel-heading">Detalles y seguimiento de solicitud</div>
 	  <div class="panel-body">
 		<div class="form-group">
 			<label for="">Usuario: </label>
-			{{ $solicitudes->usuario }}
+			<?php echo e($solicitudes->usuario); ?>
+
 		</div>
 		<div class="form-group">
 			<label for="">Teléfono de contacto del usuario: </label>
-			{{ $solicitudes->phone }}		
+			<?php echo e($solicitudes->phone); ?>		
 		</div>
 		<div class="form-group">
 			<label for="">Prestador de servicio: </label>
-			{{ $solicitudes->contratista }}		
+			<?php echo e($solicitudes->contratista); ?>		
 		</div>
 		<div class="form-group">
 			<label for="">Teléfono de contacto del prestador: </label>
-			{{ $solicitudes->telefono }}				
+			<?php echo e($solicitudes->telefono); ?>				
 		</div>
 		<div class="form-group">
 			<label for="">Servicio: </label>
-			{{ $solicitudes->nombre }}
+			<?php echo e($solicitudes->nombre); ?>
+
 		</div>
 		<div class="form-group">
 			<label for="">Posible fecha: </label>
-			{{ $solicitudes->fecha }}				
+			<?php echo e($solicitudes->fecha); ?>				
 		</div>
 		<div class="form-group">
 			<label for="">Posible Hora: </label>
-			{{ $solicitudes->hora }}
+			<?php echo e($solicitudes->hora); ?>
+
 		</div>	
 		<div class="form-group">
 			<div class="row">
@@ -107,8 +82,7 @@
 	</div>
 </div>
 <div>
-	<input type="hidden" id="solicitudes_id" value={{ $solicitudes->id }}>
-	<input type="hidden" id="servicioscontratistas_id" value={{ $solicitudes->servicioscontratistas_id }}>
+	<input type="hidden" id="solicitudes_id" value=<?php echo e($solicitudes->id); ?>>
 </div>
 <div class="modal fade" id="cancelarOrdenModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
@@ -147,32 +121,28 @@
 				<div class="row form-group">
 					<div class="col-sm-12">
 						<label for="">Prestador del Servicio: </label>
-						<input type="text" class="form-control" value="{{ $solicitudes->contratista }}" >
+						<input type="text" class="form-control" value="<?php echo e($solicitudes->contratista); ?>" >
 					</div>
 				</div>
 				<div class="row form-group">
 					<div class="col-sm-12">
 						<label for="">Servicio: </label>
-						<input type="text" class="form-control" value="{{ $solicitudes->nombre }}">
+						<input type="text" class="form-control" value="<?php echo e($solicitudes->nombre); ?>">
 					</div>
 				</div>
 				<div class="row form-group">
 					<div class="col-sm-6">
 						<label for="">Fecha:</label>
-						<input type="text" id="fecha" class="form-control datepicker" value="{{ $solicitudes->fecha }}">
+						<input type="text" class="form-control datepicker" value="<?php echo e($solicitudes->fecha); ?>">
 					</div>
 					<div class="col-sm-6">
 						<label for="">Hora:</label>
-						<input type="text" id="hora" class="form-control" value="{{ $solicitudes->hora }}">
-					</div>
-				</div>
-				<div class="row form-group">
-					<div class="col-sm-12" id="mensajeAgenda">
+						<input type="text" class="form-control" value="<?php echo e($solicitudes->hora); ?>">
 					</div>
 				</div>
 				<div class="row form-group">
 					<div class="col-sm-12">
-						<button class="btn btn-success form-control " id="btnAgendar">Agendar</button>
+						<button class="btn btn-success form-control " id="btnAgendar" data-dismiss="modal">Agendar</button>
 					</div>
 				</div>
 			</div>			

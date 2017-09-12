@@ -12,23 +12,32 @@
 */
 
 //-----------------------------------Generales
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::resource('/pais','general\pais');
 Route::get('/buscar/contratistas','admin\contratistasController@autocompletar');
 Route::get('/buscar/servicioscontratistas','usuarios\serviciosController@autocompletar');
 Route::get('/departamentos/{id}','general\estadosController@getEstados');
 Route::get('/ciudades/{id}','general\ciudadesController@getCiudades');
 
-//---------------------------recursos para usuarios
-Route::resource('/','wellcomeController');
-Route::resource('/sedesu','usuarios\sedesController');
-Route::resource('/servicios','usuarios\serviciosController');
-Route::resource('/solicitudes','usuarios\solicitudesController');
+//Redirecciona a los usuarios de acuerdo al rol que tengan
+Route::resource('/direccionador', 'admin\direccionadorController');
 
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+
+//---------------------------recursos para usuarios
+Route::group(['middleware' => ['auth', 'roles'],'roles' => ['user']],
+function () {
+	Route::resource('/','wellcomeController');
+	Route::resource('/sedesu','usuarios\sedesController');
+	Route::resource('/servicios','usuarios\serviciosController');
+	Route::resource('/solicitudes','usuarios\solicitudesController');
+});
+
 
 //recursos administrativos
-Route::prefix('admin')->group(function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'roles'], 'roles' => ['admin']],
+function () {
 	Route::get('solicituddetalle/{id}','usuarios\solicitudesController@detalle');	
 	Route::resource('categorias','admin\categoriasController');
 	Route::resource('sedes','admin\sedesController');

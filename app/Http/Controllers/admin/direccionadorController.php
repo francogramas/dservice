@@ -1,12 +1,12 @@
 <?php
 
-namespace GuiasSoft\Http\Controllers\admin;
+namespace Dservices\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 
-use GuiasSoft\Http\Requests;
-use GuiasSoft\Http\Controllers\Controller;
-use GuiasSoft\User;
+use Dservices\Http\Requests;
+use Dservices\Http\Controllers\Controller;
+use Dservices\User;
 use Auth;
 
 
@@ -14,13 +14,10 @@ class direccionadorController extends Controller
 {
  public function index(){
  	$rol=User::find(Auth::id());
- 	if ($rol{'role_id'}=='8'){
+ 	if ($rol{'role_id'}=='2'){
  		return redirect('/');
  	}
  	elseif($rol{'role_id'}=='1'){
- 		return redirect('/');
- 	}
- 	elseif($rol{'role_id'}=='12'){
  		return redirect('/');
  	}
  } 

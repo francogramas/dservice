@@ -31,7 +31,7 @@ class solicitudesController extends Controller
         ->join('ciudades','sedes.ciudades_id','ciudades.id')
         ->whereIn('solicitudes.estadosolicitudes_id',['1','2'])
         ->get();
-
+        
         return view('admin/solicitudesView')
         ->with('solicitudes',$solicitudes);
     }
